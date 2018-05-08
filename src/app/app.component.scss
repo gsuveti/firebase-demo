@@ -1,0 +1,60 @@
+.container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+
+  .two-cols {
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+
+    .col {
+      flex: 1;
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+    }
+  }
+  .drop-container-card {
+    display: flex;
+    flex-grow: 1;
+    width: 500px;
+    
+    .drop-container {
+      flex-grow: 1;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #c0c4c7;
+
+    }
+  }
+  .full-width {
+    width: 100%;
+  }
+}
+
+::ng-deep {
+  .container {
+    .new-pizza {
+      .mat-card-header {
+        .mat-card-header-text {
+          display: none;
+        }
+      }
+    }
+    .pizza {
+      width: 500px;
+      margin-bottom: 32px;
+      .mat-card-header {
+        .mat-card-header-text {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
