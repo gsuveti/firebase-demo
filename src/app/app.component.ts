@@ -1,8 +1,6 @@
 import {Component} from '@angular/core';
 import {UploadOutput} from 'ngx-uploader';
 import {Observable} from 'rxjs/Observable';
-import {AngularFirestore} from 'angularfire2/firestore';
-import {AngularFireStorage} from 'angularfire2/storage';
 
 @Component({
   selector: 'app-root',
@@ -14,15 +12,7 @@ export class AppComponent {
   pizza: any = null;
   pizzaCollection;
 
-  constructor(private firestore: AngularFirestore, private storage: AngularFireStorage) {
-    this.pizzaCollection = this.firestore.collection('/pizza');
-    this.pizzas = this.pizzaCollection.snapshotChanges().map(actions => {
-      return actions.map(action => {
-        const data = action.payload.doc.data();
-        const id = action.payload.doc.id;
-        return {id, ...data};
-      });
-    });
+  constructor() {
   }
 
 
@@ -32,27 +22,19 @@ export class AppComponent {
       description: this.pizza.description,
     };
     console.log(pizza);
-
-    this.pizzaCollection.add(pizza).then((doc) => {
-      this.uploadFile(doc.id);
-    });
   }
 
 
   deletePizza(pizza) {
-    this.pizzaCollection.doc(pizza.id).delete();
   }
 
 
   uploadFile(id) {
-    const task = this.storage.upload(this.pizza.file.name, this.pizza.file);
-    task.downloadURL().subscribe(url => {
-      this.updateUrl(id, url);
-    });
+
   }
 
   updateUrl(id: string, url: string) {
-    this.pizzaCollection.doc(id).update({url});
+
   }
 
   cancel() {
