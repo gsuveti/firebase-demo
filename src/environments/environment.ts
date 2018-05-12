@@ -4,7 +4,15 @@
 
 export const environment = {
   production: false,
-  firebase: {}
+  firebase: {
+    apiKey: 'AIzaSyB4gbNUvEX5dRyGqlzuKMQZ0vcPA97qtpM',
+    authDomain: 'hacktm-44cac.firebaseapp.com',
+    databaseURL: 'https://hacktm-44cac.firebaseio.com',
+    projectId: 'hacktm-44cac',
+    storageBucket: 'hacktm-44cac.appspot.com',
+    messagingSenderId: '604888861288'
+
+  }
 };
 
 /*
