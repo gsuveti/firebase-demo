@@ -1,12 +1,11 @@
 export const environment = {
   production: true,
   firebase: {
-    apiKey: 'AIzaSyDlhfQfO5ExjTvXIxD-YF98DB8qbqblQts',
-    authDomain: 'firbase-demo-hacktm2018.firebaseapp.com',
-    databaseURL: 'https://firbase-demo-hacktm2018.firebaseio.com',
-    projectId: 'firbase-demo-hacktm2018',
-    storageBucket: 'firbase-demo-hacktm2018.appspot.com',
-    messagingSenderId: '485849786549',
-    timestampsInSnapshots: true
+    apiKey: 'AIzaSyA4xdWWwt_hG8CDFra_OIuIqmBuHhbs5SY',
+    authDomain: 'firebse-demo-5e298.firebaseapp.com',
+    databaseURL: 'https://firebse-demo-5e298.firebaseio.com',
+    projectId: 'firebse-demo-5e298',
+    storageBucket: 'firebse-demo-5e298.appspot.com',
+    messagingSenderId: '767454524873'
   }
 };

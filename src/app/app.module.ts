@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -20,6 +20,11 @@ import {
 } from '@angular/material';
 import {NgUploaderModule} from 'ngx-uploader';
 import {FormsModule} from '@angular/forms';
+import {StartupService} from './startup.service';
+
+export function startupServiceFactory(startupService: StartupService): Function {
+  return () => startupService.load();
+}
 
 @NgModule({
   declarations: [
@@ -43,7 +48,14 @@ import {FormsModule} from '@angular/forms';
     MatToolbarModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    StartupService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: startupServiceFactory,
+      deps: [StartupService],
+      multi: true
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule {
